@@ -2,10 +2,11 @@
 	"id": 1,
 	"name": "测试菜单1",
 	"level": 1,
-	"children": [{
+	"childItem": [{
 		"id": 2,
-		"name": "测试子菜单1",
-		"level": 2
+		"name": "列表测试",
+		"level": 2,
+		"link": "/list"
 	}, {
 		"id": 3,
 		"name": "测试子菜单2",
@@ -27,7 +28,7 @@
 	"id": 7,
 	"name": "测试菜单2",
 	"level": 1,
-	"children": [{
+	"childItem": [{
 		"id": 10,
 		"name": "测试子菜单6",
 		"level": 2

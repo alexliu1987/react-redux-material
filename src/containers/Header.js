@@ -1,5 +1,8 @@
 import React from 'react'
 import {
+	connect
+} from 'react-redux'
+import {
 	AppBar,
 	Badge,
 	IconButton
@@ -12,9 +15,6 @@ import {
 	red50,
 	blue50
 } from 'material-ui/styles/colors'
-import {
-	connect
-} from 'react-redux'
 import {
 	setMenuIsOpen
 } from 'actions/menu'
@@ -49,12 +49,16 @@ class Header extends React.Component {
 	closeRegister() {
 		this.props.dispatch(setRegisterIsOpen(false))
 	}
+	linkTo(link) {
+		console.log(link)
+		this.props.history.push(link)
+	}
 	render() {
 		return (
 			<header className="header">
 				<Login isOpen={this.props.loginIsOpen} close={this.closeLogin.bind(this)} register={this.openRegister.bind(this)} />
 				<Register isOpen={this.props.registerIsOpen} close={this.closeRegister.bind(this)} login={this.openLogin.bind(this)} />
-				<Menu isOpen={this.props.menuIsOpen} close={this.closeMenu.bind(this)} />
+				<Menu isOpen={this.props.menuIsOpen} close={this.closeMenu.bind(this)} linkTo={this.linkTo.bind(this)} />
 				<AppBar 
 					title="Boilerplate"
 					onLeftIconButtonTouchTap={this.openMenu.bind(this)}

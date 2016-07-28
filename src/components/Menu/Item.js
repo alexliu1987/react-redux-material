@@ -15,16 +15,21 @@ class Item extends React.Component {
 		}
 	}
 	renderList() {
-		if (this.props.children)
-			return this.props.children.map((item, i) => {
+		if (this.props.childItem)
+			return this.props.childItem.map((item, i) => {
 				item.close = this.props.close
-				return (<Item {...item} key={item.id} />)
+				return (<Item {...item} key={item.id} linkTo={this.props.linkTo} />)
 			})
 	}
 	toggleIsOpen() {
 		this.setState({
 			isOpen: !this.state.isOpen
 		})
+	}
+	linkTo() {
+		if (this.props.link)
+			this.props.linkTo(this.props.link)
+		this.props.close()
 	}
 	render() {
 		let styles = {
@@ -36,11 +41,11 @@ class Item extends React.Component {
 				display: 'none'
 			}
 		}
-		let props = this.props.children && this.props.children.length ? {
+		let props = this.props.childItem && this.props.childItem.length ? {
 			rightIcon: this.state.isOpen ? <HardwareKeyboardArrowUp /> : <HardwareKeyboardArrowDown />,
 			onTouchTap: this.toggleIsOpen.bind(this)
 		} : {
-			onTouchTap: this.props.close
+			onTouchTap: this.linkTo.bind(this)
 		}
 		return (
 			<div>
@@ -58,8 +63,9 @@ Item.propTypes = {
 	name: React.PropTypes.string.isRequired,
 	level: React.PropTypes.number.isRequired,
 	link: React.PropTypes.string,
-	children: React.PropTypes.array,
-	close: React.PropTypes.func.isRequired
+	childItem: React.PropTypes.array,
+	close: React.PropTypes.func.isRequired,
+	linkTo: React.PropTypes.func.isRequired
 }
 
 export default Item

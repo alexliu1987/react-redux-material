@@ -24,7 +24,7 @@ class Menu extends React.Component {
 		if (this.props.list)
 			return this.props.list.map((item, i) => {
 				item.close = this.props.close
-				return (<Item {...item} key={item.id} />)
+				return (<Item {...item} key={item.id} linkTo={this.props.linkTo} />)
 			})
 	}
 	render() {
@@ -51,7 +51,8 @@ class Menu extends React.Component {
 
 Menu.propTypes = {
 	isOpen: React.PropTypes.bool.isRequired,
-	close: React.PropTypes.func.isRequired
+	close: React.PropTypes.func.isRequired,
+	linkTo: React.PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {

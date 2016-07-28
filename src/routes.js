@@ -3,11 +3,13 @@ import {
 	Route,
 	IndexRoute
 } from 'react-router'
-import App from './containers/App';
+import App from './containers/App'
+import Index from './containers/Index'
+import List from './containers/List'
 
 export default (
-	<Route path="/" component={App}>
-	    <IndexRoute component={App} />
-	    <Route path="news" component={App} />
+	<Route path="/">
+	    <IndexRoute component={Index} />
+	    <Route path="list" component={List} />
 	</Route>
 )
