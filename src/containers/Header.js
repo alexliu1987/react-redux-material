@@ -50,7 +50,6 @@ class Header extends React.Component {
 		this.props.dispatch(setRegisterIsOpen(false))
 	}
 	linkTo(link) {
-		console.log(link)
 		this.props.history.push(link)
 	}
 	render() {

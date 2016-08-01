@@ -29,6 +29,8 @@ class Item extends React.Component {
 	linkTo() {
 		if (this.props.link)
 			this.props.linkTo(this.props.link)
+		else
+			this.props.linkTo('/')
 		this.props.close()
 	}
 	render() {

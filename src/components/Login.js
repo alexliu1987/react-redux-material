@@ -15,7 +15,7 @@ class Login extends React.Component {
 				display: 'flex',
 				alignItems: 'center',
 				alignContent: 'center',
-				justifyContent: 'center',
+				justifyContent: 'center'
 			},
 			div: {
 				flex: 1,
